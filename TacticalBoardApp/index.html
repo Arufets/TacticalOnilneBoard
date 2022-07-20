@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Tactical Board Application</title>
+    <link rel="stylesheet" href="../TacticalBoardApp/style/style.css">
+    
+</head>
+<body>
+    <header>
+        <nav class="nav" id="nav">
+            <div class="nav-container">
+                <div class="nav-box" id="nav-box">
+                    <ul class="list">
+                        <li class="nav item"><i class="fa-solid fa-house">
+                            </i><a href="#" class="nav link">Home</a>
+                        </li>
+    
+                        <li class="nav item"><i class="fa-solid fa-phone">
+                            </i><a href="#footer" class="nav link">Contact</a>
+                        </li>
+                    </ul>
+                </div>  
+                <div class="hamburger-box">
+                    <div class="hamburger-menu" id="hamburger-menu">
+                        <div class="hamburger-item hidden" id="imgFootball">Football</div>
+                        <div class="hamburger-item hidden" id="imgBasketball">Basketball</div>                       
+                    </div>
+                        <a class="hamburger" id="menu-button"></a>
+                    </div>         
+                </div>
+            </div>            
+        </nav>
+    </header>
+    <section id="content">
+        <div class="toolbar-container" id="toolbar-container">
+            <div class="toolbar">
+                <span>Active drawing:</span>
+                <input class="slider" id="slider" type="range" min="1" max="2" value="1">
+                <!--<button class="tool-btn" id="pencil"><i class="fa-solid fa-pencil"></i></button> -->
+                <button class="tool-btn" id="clear"><i class="fa-solid fa-eraser"></i></button>
+                <button class="tool-btn" id="undo"><i class="fa-solid fa-rotate-left"></i></button>  
+                <button class="tool-btn" id="redo"><i class="fa-solid fa-rotate-right"></i></button>             
+                <button class="tool-btn" id="color"><i class="fa-solid fa-brush"></i></button> 
+                <input class="color-select" onInput="draw_color = this.value" type="color" id="drawColorPicker">
+                <input class="slider" id="slider2" type="range" min="1" max="5" value="3">
+                <button class="tool-btn" id="settings"><i class="fa-solid fa-gear"></i></button> 
+                <button class="tool-btn" id="refresh"><i class="fa-solid fa-refresh"></i></button> 
+            </div>
+        </div>
+
+        <div class="layout" id="board-container">
+            <div class="layout-side">
+                <div class="add-container">
+                    <div class="add-box" id="box-left">                   
+                        <input class="color-select" type="color" id="selectPlayerColorHome" value="#FF0000">
+                        <input class="color-change" type="button" id="changePlayerColorHome" value="Change">
+                        <input class="color-reset" type="button" id="resetPlayerColorHome" value="Reset"> 
+                        <button id="remove-element-home" class="btn" ><i class="fa-solid fa-minus"></i></button>
+                        <button id="create-element-home" class="btn"><i class="fa-solid fa-plus"></i></button>                     
+                        <div class="dropboxHome" id="dropboxHome">
+                                     
+                        </div>
+
+                    </div>       
+                </div>
+            </div>
+
+            <div class="layout-main">
+                <div class="img-container">
+                    <div class="board" id="field">
+                        <img  class="imgBoard" id="imgBoard" alt="Football pitch" src="../TacticalBoardApp/img/football_pitch.png">
+                    </div>
+                </div>             
+            </div>
+
+            <div class="layout-side">
+                <div class="add-container">
+                    <div class="add-box" id="box-right">   
+                        <input class="color-select" type="color" id="selectPlayerColorAway" value="#add8e6">
+                        <input class="color-change" type="button" id="changePlayerColorAway" value="Change">
+                        <input class="color-reset" type="button" id="resetPlayerColorAway" value="Reset">                    
+                        <button id="remove-element-away" class="btn"><i class="fa-solid fa-minus"></i></button>
+                        <button id="create-element-away" class="btn"><i class="fa-solid fa-plus"></i></button>
+                        <div class="dropboxHome" id="dropboxAway">
+                                      
+                        </div>
+                    </div>       
+                </div>
+            </div>
+        </div>
+        <div class="playerSettingsContainer hidden" id="playerSettingsContainer">
+            <div class="playerListContainer" id="plcHome">
+                <p><b>Home</b> team player list:</p>
+            </div>
+            <div class="playerListContainer" id="plcAway">
+                <p><b>Away</b> team player list:</p>
+            </div>
+        </div>
+        <canvas id="canvas">
+            
+        </canvas>
+    </section>
+    <footer id="footer">
+        <div class="ft-container-left">
+            <img alt="football" src="../TacticalBoardApp/img/football_ft.jpg">
+        </div>
+
+        <div class="ft-container-mid">
+            <div>
+                <div class="title-ft">Contact us</div>
+                <div>
+                    <div class="contact-item"><i class="fa-solid fa-phone"></i></div>
+                    <div class="contact-item"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="contact-item"><i class="fa-brands fa-facebook"></i></div>
+                    <div class="contact-item"><i class="fa-brands fa-twitter"></i></div>  
+                </div>                           
+            </div>
+        </div>
+
+        <div class="ft-container-right">
+           <img alt="basketball" src="../TacticalBoardApp/img/bball_ft.jpg">
+        </div>
+    </footer>
+    <script  defer src="../TacticalBoardApp/script/script.js"></script>
+    <script  defer src="../TacticalBoardApp/script/canvas.js"></script>
+</body>
+</html>
